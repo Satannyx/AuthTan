@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Alert, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import loginStyles from "../styles/LoginStyles";
 import CustomButton from "../components/CustomButton";
+import { isEmailValid } from "../components/validation";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -12,12 +13,24 @@ const LoginScreen = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {
+    if (!email.trim() || !password.trim()) {
+      Alert.alert('Empty Fields', 'Please fill in both email and password fields.');
+      return;
+    }
+  
+    if (!isEmailValid(email)) {
+      Alert.alert('Invalid Email', 'Please enter a valid email address.');
+      return;
+    }
+  
+    // Your existing login logic
     const isLoginSuccessful = true;
-
+  
     if (isLoginSuccessful) {
-      navigation.navigate("HomePage");
+      navigation.navigate('HomePage');
     }
   };
+  
 
   return (
     <View style={loginStyles.container}>

@@ -4,6 +4,9 @@ import { useNavigation } from "@react-navigation/native";
 import registerStyles from "../styles/RegisterStyles";
 import CustomButton from "../components/CustomButton";
 import { Ionicons } from "@expo/vector-icons";
+import { isEmailValid } from "../components/validation";
+import { isPasswordValid } from "../components/validation";
+
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -17,35 +20,52 @@ const RegisterScreen = () => {
 
   const handleRegister = () => {
     if (!firstName || !email || !password || !confirmPassword) {
-      Alert.alert(
-        "Empty Fields",
-        "Please fill in all the required input fields."
-      );
-      return;
+        Alert.alert(
+            "Empty Fields",
+            "Please fill in all the required input fields."
+        );
+        return;
     }
 
     if (!isEmailValid(email)) {
-      Alert.alert("Invalid Email", "Please enter a valid email address.");
-      return;
+        Alert.alert("Invalid Email", "Please enter a valid email address.");
+        return;
+    }
+
+    // Check password validity only if a password is provided
+    if (password && !isPasswordValid(password)) {
+        Alert.alert(
+            "Invalid Password",
+            "Password must be 8-15 characters long and include at least one lowercase letter, one uppercase letter, one numeric digit, and one special character."
+        );
+        return;
     }
 
     if (password === confirmPassword) {
-      console.log("User registered:", { firstName, email, password });
+        console.log("User registered:", { firstName, email, password });
 
-      // Reset form fields
-      setFirstName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-      setShowPassword(false);
-      setShowPassword1(false);
-      setPasswordMismatch(false);
+        // Reset form fields
+        setFirstName("");
+        setEmail("");
+        setPassword("");
+        setConfirmPassword("");
+        setShowPassword(false);
+        setShowPassword1(false);
+        setPasswordMismatch(false);
 
-      navigation.navigate("Login");
+        // Notify the user of successful registration
+        Alert.alert(
+            "Registration Successful",
+            "Your account has been successfully registered. Please log in."
+        );
+
+        navigation.navigate("Login");
     } else {
-      setPasswordMismatch(true);
+        setPasswordMismatch(true);
     }
-  };
+};
+
+
 
   return (
     <View style={registerStyles.container}>

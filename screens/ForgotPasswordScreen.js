@@ -3,6 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Alert, Image } from "react-nat
 import { useNavigation } from "@react-navigation/native";
 import forgotPasswordStyles from "../styles/ForgotPasswordStyles";
 import CustomButton from "../components/CustomButton";
+import { isEmailValid } from "../components/validation";
 
 const ForgotPasswordScreen = () => {
   const navigation = useNavigation();

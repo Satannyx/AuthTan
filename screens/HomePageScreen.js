@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, Image, Alert, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import homePageStyles from '../styles/homePageStyles';
 import CustomButton from '../components/CustomButton';
+import homePageStyles from '../styles/HomePageStyles';
 
 const HomePageScreen = () => {
     const navigation = useNavigation();
