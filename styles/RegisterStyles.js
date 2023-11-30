@@ -20,17 +20,17 @@ const registerStyles = StyleSheet.create({
   input: {
     width: 300,
     height: 40,
-    borderBottomWidth: 1,
+    borderWidth: 1,
     marginBottom: 15,
-    padding: 10,
-    fontSize: 16,
+    padding: 10, 
+    fontSize: 15,
   },
   passwordInput: {
     width: 300,
   },
   eyeIconContainer: {
     position: "absolute",
-    right: -30,
+    right: 10,
     top: 5, 
   },
   button: {

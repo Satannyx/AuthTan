@@ -36,16 +36,6 @@ const LoginScreen = () => {
     <View style={loginStyles.container}>
       <Image source={require('../img/Logo/horde.png')} style={loginStyles.logo} />
       <View style={loginStyles.formContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("Welcome")}>
-          <Text
-            style={[
-              loginStyles.goBack,
-              { fontFamily: "Poppins_600SemiBold", color: "#C41F3B", marginBottom: 20 },
-            ]}
-          >
-            Go Back
-          </Text>
-        </TouchableOpacity>
         <Text style={[loginStyles.loginText, { fontFamily: "Poppins_600SemiBold" }]}>
           Welcome
         </Text>
@@ -85,7 +75,7 @@ const LoginScreen = () => {
           <Text
             style={[
               loginStyles.forgotPassword,
-              { fontFamily: "Poppins_400Regular", color: "#C41F3B", marginLeft: 160, marginTop: -10, marginBottom: 20 },
+              { fontFamily: "Poppins_400Regular", color: "#C41F3B", marginLeft: 160, marginTop: -10, marginBottom: 5 },
             ]}
           >
             Forgot Password?
@@ -118,6 +108,16 @@ const LoginScreen = () => {
             </Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity onPress={() => navigation.navigate("Welcome")}>
+          <Text
+            style={[
+              loginStyles.goBack,
+              { fontFamily: "Poppins_600SemiBold", color: "#C41F3B", marginBottom: 20 },
+            ]}
+          >
+            Go Back
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

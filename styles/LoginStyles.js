@@ -27,11 +27,10 @@ const loginStyles = StyleSheet.create({
   input: {
     width: 300,
     height: 40,
-    borderBottomWidth: 1,
+    borderWidth: 1,
     marginBottom: 15,
-    padding: 0,
+    padding: 10, 
     fontSize: 15,
-
   },
   passwordContainer: {
     flexDirection: "row",
@@ -42,7 +41,7 @@ const loginStyles = StyleSheet.create({
   },
   eyeIconContainer: {
     position: "absolute",
-    right: -30,
+    right: 10,
     top: 5, 
   },
   forgotPassword: {
